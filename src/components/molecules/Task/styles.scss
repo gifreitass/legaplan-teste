@@ -1,0 +1,19 @@
+.taskDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    border: 1px dashed #D7DDE9;
+    border-radius: 8px;
+    padding-inline: 16px;
+}
+
+.inputDiv {
+    display: flex;
+    gap: 16px;
+}
+
+.checkbox {
+    width: 24px;
+    height: 24px;
+}
