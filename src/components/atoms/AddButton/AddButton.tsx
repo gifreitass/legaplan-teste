@@ -1,15 +1,10 @@
 import { Dispatch, MouseEventHandler, SetStateAction } from "react"
 import "./styles.scss"
 
-const AddButton: React.FC<{ setTasksList: Dispatch<SetStateAction<string[]>>, actualTask: string, tasksList: string[], setNewTaskModal: Dispatch<SetStateAction<boolean>> }> = (props) => {
-    const handleClick = () => {
-        const newList = [...props.tasksList, props.actualTask]
-        props.setNewTaskModal(false)
-        props.setTasksList(newList)
-    }
-
+const AddButton: React.FC<{ onClick: () => void }> = (props) => {
+    
     return (
-        <button onClick={handleClick} className="addButton">Adicionar</button>
+        <button onClick={props.onClick} className="addButton">Adicionar</button>
     )
 }
 

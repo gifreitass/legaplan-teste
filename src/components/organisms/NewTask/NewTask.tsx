@@ -1,12 +1,23 @@
+"use client"
 import CancelButton from "@/components/atoms/CancelButton/CancelButton"
 import "./styles.scss"
 import AddButton from "@/components/atoms/AddButton/AddButton"
-import { Dispatch, MouseEventHandler, SetStateAction } from "react"
+import { Dispatch, MouseEventHandler, SetStateAction, useState } from "react"
+import { iTask } from "@/components/templates/Homepage"
 
-const NewTask: React.FC<{ onClick: MouseEventHandler<HTMLButtonElement>, setActualTask: Dispatch<SetStateAction<string>>, setTasksList: Dispatch<SetStateAction<string[]>>, actualTask: string, tasksList: string[], setNewTaskModal: Dispatch<SetStateAction<boolean>> }> = (props) => {
+const NewTask: React.FC<{ onClick: MouseEventHandler<HTMLButtonElement>, setTasksList:  Dispatch<SetStateAction<iTask[]>>, tasksList: iTask[], setNewTaskModal: Dispatch<SetStateAction<boolean>> }> = (props) => {
+    const [actualTask, setActualTask] = useState<string>('')
+    
     const handleChange = (evt: any) => {
-        props.setActualTask(evt.target.value)
+        setActualTask(evt.target.value)
     }
+
+    const handleClick = () => {
+        const newList = [...props.tasksList, { name: actualTask, checked: false }]
+        props.setNewTaskModal(false)
+        props.setTasksList(newList)
+    }
+
 
     return (
         <div className="mainDiv">
@@ -18,7 +29,7 @@ const NewTask: React.FC<{ onClick: MouseEventHandler<HTMLButtonElement>, setActu
                 </div>
                 <div className="divButtons">
                     <CancelButton onClick={props.onClick} />
-                    <AddButton setNewTaskModal={props.setNewTaskModal} tasksList={props.tasksList} actualTask={props.actualTask} setTasksList={props.setTasksList} />
+                    <AddButton onClick={handleClick}/>
                 </div>
             </div>
         </div>

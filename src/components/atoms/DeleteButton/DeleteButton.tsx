@@ -1,8 +1,8 @@
 import "./styles.scss"
 
-const DeleteButton = () => {
+const DeleteButton: React.FC<{ onClick: () => void }> = (props) => {
     return (
-        <button className="deleteButton">Deletar</button>
+        <button onClick={props.onClick} className="deleteButton">Deletar</button>
     )
 }
 
