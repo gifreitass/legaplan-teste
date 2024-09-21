@@ -1,19 +1,37 @@
+$grey1: #D7DDE9;
+$grey2: #F7F9FD;
+$grey3: #B0BBD1;
+
 .taskDiv {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    border: 1px dashed #D7DDE9;
+    border: 1px dashed $grey1;
     border-radius: 8px;
     padding-inline: 16px;
+    &:hover {
+        background-color: $grey2;
+        border: 1px solid $grey2;
+        cursor: pointer;
+    }
 }
 
 .inputDiv {
     display: flex;
     gap: 16px;
+    align-items: center;
 }
 
 .checkbox {
     width: 24px;
     height: 24px;
+    appearance: none;
+    border: 1px solid $grey3;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.trashImage {
+    position: 1;
 }
