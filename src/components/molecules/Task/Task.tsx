@@ -5,8 +5,8 @@ import "./styles.scss"
 const Task: React.FC<{ onClick: () => void, children: string, taskName: string, clickCheckbox: (task: string) => void, checked: boolean }> = (props) => {
 
     return (
-        <div className="taskDiv">
-            <div onClick={() => props.clickCheckbox(props.taskName)} className="inputDiv">
+        <div onClick={() => props.clickCheckbox(props.taskName)} className="taskDiv">
+            <div className="inputDiv">
                 <input checked={props.checked} type="checkbox" className="checkbox" />
                 <p>{props.children}</p>
             </div>
